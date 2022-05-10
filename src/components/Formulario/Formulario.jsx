@@ -7,7 +7,7 @@ export default class Formulario extends Component {
     name: "",
     nota: "",
   };
-  
+
   mudarState = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -15,8 +15,10 @@ export default class Formulario extends Component {
 
   criarNota = (event) => {
     event.preventDefault();
-    this.props.dados({ name: this.state.name, nota: this.state.nota });
-    this.setState({ name: "", nota: "" });
+    if (this.state.name !== "" && this.state.nota !== "") {
+      this.props.dados({ name: this.state.name, nota: this.state.nota });
+      this.setState({ name: "", nota: "" });
+    }
   };
 
   render() {

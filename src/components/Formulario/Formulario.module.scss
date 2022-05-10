@@ -1,0 +1,19 @@
+.formulario{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    gap: 2rem;
+
+    input{
+        height: 2rem;
+        border: 1px solid rgba(201, 201, 201, 0.753);
+    }
+    button{
+        background-color: rgb(174, 0, 255);
+        height: 2rem;
+        border-radius: 1rem;
+        color: #fff;
+        border: none;
+        font-weight: bold;
+    }
+}

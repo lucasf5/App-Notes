@@ -45,7 +45,7 @@ export default class App extends Component {
   componentDidUpdate(prevState) {
     if (this.state.infos !== prevState.infos) {
       localStorage.setItem("dados", JSON.stringify(this.state.infos));
-    }
+    } 
   }
 
   render() {
@@ -63,6 +63,7 @@ export default class App extends Component {
             placeholder="Pesquise pelo nome"
             value={this.state.texto}
           />
+
           <Toaster position="top-right" reverseOrder={false} />
 
           <article>

@@ -32,7 +32,7 @@ export default class Formulario extends Component {
         nota: this.state.nota,
         importancia: this.state.importancia,
       });
-      this.setState({ name: "", nota: "", importancia: "" });
+      this.setState({ name: "", nota: ""});
     } else {
       toast.error("Preencha todas as informações!", {
         style: {

@@ -1,5 +1,6 @@
 import Formulario from "./components/Formulario/Formulario";
 import style from "./App.module.scss";
+import toast, { Toaster } from "react-hot-toast";
 
 import React, { Component } from "react";
 import Notas from "./components/Notas/Notas";
@@ -11,14 +12,28 @@ export default class App extends Component {
     texto: "",
     infos: JSON.parse(localStorage.getItem("dados")) || [],
   };
-  dados = ({ ...dados }) => {
+
+  dados = (dados) => {
     this.setState({ infos: [...this.state.infos, dados] });
+    toast.success("Nota criada com sucesso!", {
+      style: {
+        border: "1px solid rgb(174, 0, 255)",
+        fontFamily: "Poppins",
+      },
+    });
   };
 
   mudarArray = (quemFoiClicado) => {
     const novaInfo = [...this.state.infos];
     novaInfo.splice(quemFoiClicado, 1);
     this.setState({ infos: [...novaInfo] });
+    toast("Nota deletada com sucesso!", {
+      icon: "👋",
+      style: {
+        border: "1px solid rgb(174, 0, 255)",
+        fontFamily: "Poppins",
+      },
+    });
   };
 
   handleChange = (event) => {
@@ -26,19 +41,17 @@ export default class App extends Component {
     this.setState({ texto: value });
   };
 
-  componentDidUpdate(prevState){
+  componentDidUpdate(prevState) {
     if (this.state.infos !== prevState.infos) {
-        localStorage.setItem("dados", JSON.stringify(this.state.infos));
+      localStorage.setItem("dados", JSON.stringify(this.state.infos));
     }
   }
-
   render() {
-
-    const regex = new RegExp(this.state.texto, "i")
+    const regex = new RegExp(this.state.texto, "i");
 
     return (
       <div className={style.App}>
-        <Formulario dados={this.dados} className={style.formulario}/>
+        <Formulario dados={this.dados} className={style.formulario} />
 
         <section>
           <input
@@ -48,20 +61,21 @@ export default class App extends Component {
             placeholder="Pesquise pelo nome"
             value={this.state.texto}
           />
-          
+          <Toaster position="top-right" reverseOrder={false} />
+
           <article>
             {this.state.infos
-            .filter(item => regex.test(item.name))
-            .map((info, index) => (
-              <Notas
-                key={index}
-                titulo={info.name}
-                nota={info.nota}
-                index={index}
-                mudarArray={this.mudarArray}
-                importancia={info.importancia}
-              />
-            ))}
+              .filter((item) => regex.test(item.name))
+              .map((info, index) => (
+                <Notas
+                  key={index}
+                  titulo={info.name}
+                  nota={info.nota}
+                  index={index}
+                  mudarArray={this.mudarArray}
+                  importancia={info.importancia}
+                />
+              ))}
           </article>
         </section>
       </div>

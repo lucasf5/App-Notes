@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Title from "../Title/Title";
 import style from "./Formulario.module.scss";
 import { BiNote } from "react-icons/bi";
+import toast, { Toaster } from "react-hot-toast";
 
 export default class Formulario extends Component {
   state = {
@@ -17,17 +18,28 @@ export default class Formulario extends Component {
 
   mudarChecked = (event) => {
     this.setState({ importancia: event.target.value });
-  }
+  };
 
   criarNota = (event) => {
     event.preventDefault();
-    if (this.state.name !== "" && this.state.nota !== "" && this.state.importancia !== "") {
+    if (
+      this.state.name !== "" &&
+      this.state.nota !== "" &&
+      this.state.importancia !== ""
+    ) {
       this.props.dados({
         name: this.state.name,
         nota: this.state.nota,
         importancia: this.state.importancia,
       });
       this.setState({ name: "", nota: "", importancia: "" });
+    } else {
+      toast.error("Preencha todas as informações!", {
+        style: {
+          border: "1px solid rgb(174, 0, 255)",
+          fontFamily: "Poppins",
+        },
+      });
     }
   };
 
@@ -64,7 +76,7 @@ export default class Formulario extends Component {
                 onChange={this.mudarChecked.bind(this)}
               />
               <BiNote color="red" />
-              <label for="Importante">Importante</label>
+              <label htmlFor="Importante">Importante</label>
             </div>
 
             <div>
@@ -76,7 +88,7 @@ export default class Formulario extends Component {
                 onChange={this.mudarChecked.bind(this)}
               />
               <BiNote color="rgba(174, 0, 255, 0.8)" />
-              <label for="Normal">Normal</label>
+              <label htmlFor="Normal">Normal</label>
             </div>
 
             <div>
@@ -88,7 +100,7 @@ export default class Formulario extends Component {
                 onChange={this.mudarChecked.bind(this)}
               />
               <BiNote color="green" />
-              <label for="Depois">Depois</label>
+              <label htmlFor="Depois">Depois</label>
             </div>
           </section>
 

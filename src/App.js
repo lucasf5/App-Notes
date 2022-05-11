@@ -1,5 +1,6 @@
 import Formulario from "./components/Formulario/Formulario";
 import style from "./App.module.scss";
+
 import toast, { Toaster } from "react-hot-toast";
 
 import React, { Component } from "react";
@@ -46,6 +47,7 @@ export default class App extends Component {
       localStorage.setItem("dados", JSON.stringify(this.state.infos));
     }
   }
+
   render() {
     const regex = new RegExp(this.state.texto, "i");
 

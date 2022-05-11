@@ -38,7 +38,7 @@ export default class App extends Component {
 
     return (
       <div className={style.App}>
-        <Formulario dados={this.dados} />
+        <Formulario dados={this.dados} className={style.formulario}/>
 
         <section>
           <input
@@ -58,6 +58,7 @@ export default class App extends Component {
                 nota={info.nota}
                 index={index}
                 mudarArray={this.mudarArray}
+                importancia={info.importancia}
               />
             ))}
           </article>

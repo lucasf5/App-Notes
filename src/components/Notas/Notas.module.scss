@@ -1,35 +1,42 @@
-.card{
-    margin-top: 5rem;
-    min-width: 250px;
+.card {
+  margin-top: 5rem;
+  min-width: 250px;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-top-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  font-family: "Poppins", sans-serif;
+  h1 {
+    font-size: 2rem;
     padding: 1rem;
-    background-color: rgb(140, 0, 255);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items:center;
-    position: relative;
-    border-top-left-radius: 2rem;
-    border-bottom-right-radius: 2rem;
-    font-family: 'Poppins', sans-serif;
+    border: 1px solid white;
+    text-align: center;
+    word-wrap: break-word;
+  }
 
-    h1{
-        font-size: 2rem;
-        padding: 1rem;
-        border: 1px solid white;
-        text-align: center;
-        word-wrap: break-word;
-    }
-
-    h2{
-        font-family: monospace;
-        word-wrap: break-word; 
-    }
-    svg{
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding:0.5rem;
-        cursor: pointer;
-    }
+  h2 {
+    font-family: monospace;
+    word-wrap: break-word;
+  }
+  svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+}
+.Normal {
+  background-color: rgb(140, 0, 255);
+}
+.Importante {
+  background-color: rgb(255, 0, 0);
+}
+.Depois {
+  background-color: rgb(38, 163, 0);
 }

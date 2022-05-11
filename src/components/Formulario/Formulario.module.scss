@@ -4,14 +4,23 @@
   width: 40vw;
   gap: 2rem;
 
-  input {
+  .input {
     height: 2rem;
     border: 1px solid rgba(201, 201, 201, 0.753);
-
   }
-  input:focus {
+  .input:focus {
     box-shadow: 2px 2px 5px rgb(174, 0, 255);
     outline: 0;
+  }
+  select {
+    height: 2rem;
+    border: 1px solid rgba(201, 201, 201, 0.753);
+    cursor: pointer;
+
+    option {
+      font-weight: bold;
+      display: block;
+    }
   }
   button {
     background-color: rgb(174, 0, 255);
@@ -26,5 +35,20 @@
     &:hover {
       background-color: rgba(174, 0, 255, 0.8);
     }
+  }
+  .section{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    div{
+      display: flex;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+    }
+  }
+
+  @media (max-width: 800px){
+    width: 80%;
+    margin: 0 auto;
   }
 }

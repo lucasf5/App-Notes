@@ -2,7 +2,6 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-
   section {
     width: 50%;
     display: flex;
@@ -11,11 +10,20 @@
       height: 2rem;
       border: 1px solid rgba(201, 201, 201, 0.753);
     }
-    article{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        width: 100%;
+    article {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    margin: 0 auto;
+    section {
+      width: 80%;
+      margin: 0 auto;
     }
   }
 }

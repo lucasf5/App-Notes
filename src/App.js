@@ -48,6 +48,7 @@ export default class App extends Component {
             placeholder="Pesquise pelo nome"
             value={this.state.texto}
           />
+          
           <article>
             {this.state.infos
             .filter(item => regex.test(item.name))

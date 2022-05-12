@@ -13,10 +13,10 @@ export default class Notas extends Component {
       animation: 1s ${this.bounceAnimation};
     `;
 
-  render() {
-    const verificaTarget = () => {
+    verificaTarget = () => {
       this.props.mudarArray(this.props.index);
     };
+  render() {
 
     return (
       <this.BouncyDiv
@@ -25,7 +25,7 @@ export default class Notas extends Component {
           [styles[`${this.props.importancia}`]]: true,
         })}
       >
-        <GrClose size={20} onClick={() => verificaTarget()} />
+        <GrClose size={20} onClick={() => this.verificaTarget()} />
         <h1>{this.props.titulo}</h1>
         <h2>{this.props.nota}</h2>
       </this.BouncyDiv>

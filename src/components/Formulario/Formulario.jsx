@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Title from "../Title/Title";
 import style from "./Formulario.module.scss";
 import { BiNote } from "react-icons/bi";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
+import { v4 as uuidv4 } from 'uuid';
 
 export default class Formulario extends Component {
   state = {
@@ -28,6 +29,7 @@ export default class Formulario extends Component {
       this.state.importancia !== ""
     ) {
       this.props.dados({
+        id: uuidv4(),
         name: this.state.name,
         nota: this.state.nota,
         importancia: this.state.importancia,

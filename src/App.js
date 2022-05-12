@@ -26,7 +26,8 @@ export default class App extends Component {
 
   mudarArray = (quemFoiClicado) => {
     const novaInfo = [...this.state.infos];
-    novaInfo.splice(quemFoiClicado, 1);
+    const indice = novaInfo.findIndex((item)=> item.id === quemFoiClicado)
+    novaInfo.splice(indice, 1);
     this.setState({ infos: [...novaInfo] });
     toast("Nota deletada com sucesso!", {
       icon: "👋",
@@ -44,8 +45,8 @@ export default class App extends Component {
 
   componentDidUpdate(prevState) {
     if (this.state.infos !== prevState.infos) {
-      localStorage.setItem("dados", JSON.stringify(this.state.infos));
-    } 
+      localStorage.setItem("dados", JSON.stringify(this.state.infos)); 
+    }
   }
 
   render() {
@@ -74,7 +75,7 @@ export default class App extends Component {
                   key={index}
                   titulo={info.name}
                   nota={info.nota}
-                  index={index}
+                  index={info.id}
                   mudarArray={this.mudarArray}
                   importancia={info.importancia}
                 />

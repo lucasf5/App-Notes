@@ -3,7 +3,8 @@ import Title from "../Title/Title";
 import style from "./Formulario.module.scss";
 import { BiNote } from "react-icons/bi";
 import toast from "react-hot-toast";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
+import { Button, TextField } from "@mui/material";
 
 export default class Formulario extends Component {
   state = {
@@ -34,7 +35,7 @@ export default class Formulario extends Component {
         nota: this.state.nota,
         importancia: this.state.importancia,
       });
-      this.setState({ name: "", nota: ""});
+      this.setState({ name: "", nota: "" });
     } else {
       toast.error("Preencha todas as informações!", {
         style: {
@@ -50,20 +51,16 @@ export default class Formulario extends Component {
       <>
         <form className={style.formulario}>
           <Title />
-          <input
-            className={style.input}
+          <TextField id="filled-basic" label="Titulo" variant="filled" color="secondary" 
             type="text"
-            placeholder="Titulo"
             value={this.state.name}
             name="name"
             onChange={this.mudarState.bind(this)}
             autoFocus
           />
 
-          <input
-            className={style.input}
+          <TextField id="filled-basic" label="Escreva sua nota" variant="filled" color="secondary"
             type="text"
-            placeholder="Escreva sua nota"
             value={this.state.nota}
             name="nota"
             onChange={this.mudarState.bind(this)}
@@ -105,8 +102,7 @@ export default class Formulario extends Component {
               <label htmlFor="Depois">Depois</label>
             </div>
           </section>
-
-          <button onClick={this.criarNota.bind(this)}>Criar nota</button>
+            <Button variant="contained" onClick={this.criarNota.bind(this)}>Criar nota</Button>
         </form>
       </>
     );

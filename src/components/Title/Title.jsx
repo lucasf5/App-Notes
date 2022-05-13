@@ -6,7 +6,7 @@ export default class Title extends Component {
   render() {
     return (
       <h1 className={style.titulo}>
-          Criar nova nota <BiNote />
+          Notes <BiNote /> 
       </h1>
     )
   }

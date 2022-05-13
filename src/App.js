@@ -1,10 +1,13 @@
 import Formulario from "./components/Formulario/Formulario";
 import style from "./App.module.scss";
 
+import SearchIcon from "@mui/icons-material/Search";
+
 import toast, { Toaster } from "react-hot-toast";
 
 import React, { Component } from "react";
 import Notas from "./components/Notas/Notas";
+import { IconButton, InputBase } from "@mui/material";
 
 export default class App extends Component {
   state = {
@@ -26,7 +29,7 @@ export default class App extends Component {
 
   mudarArray = (quemFoiClicado) => {
     const novaInfo = [...this.state.infos];
-    const indice = novaInfo.findIndex((item)=> item.id === quemFoiClicado)
+    const indice = novaInfo.findIndex((item) => item.id === quemFoiClicado);
     novaInfo.splice(indice, 1);
     this.setState({ infos: [...novaInfo] });
     toast("Nota deletada com sucesso!", {
@@ -45,7 +48,7 @@ export default class App extends Component {
 
   componentDidUpdate(prevState) {
     if (this.state.infos !== prevState.infos) {
-      localStorage.setItem("dados", JSON.stringify(this.state.infos)); 
+      localStorage.setItem("dados", JSON.stringify(this.state.infos));
     }
   }
 

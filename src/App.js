@@ -1,13 +1,11 @@
 import Formulario from "./components/Formulario/Formulario";
 import style from "./App.module.scss";
 
-import SearchIcon from "@mui/icons-material/Search";
-
 import toast, { Toaster } from "react-hot-toast";
 
 import React, { Component } from "react";
 import Notas from "./components/Notas/Notas";
-import { IconButton, InputBase } from "@mui/material";
+import { TextField } from "@mui/material";
 
 export default class App extends Component {
   state = {
@@ -60,7 +58,11 @@ export default class App extends Component {
         <Formulario dados={this.dados} className={style.formulario} />
 
         <section>
-          <input
+          <TextField
+            id="filled-basic"
+            label="Buscar sua nota"
+            variant="filled"
+            color="secondary"
             className={style.input}
             type="text"
             onChange={(event) => this.handleChange(event)}

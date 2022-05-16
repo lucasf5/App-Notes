@@ -1,7 +1,7 @@
 .formulario {
   display: flex;
   flex-direction: column;
-  width: 40vw;
+  width: 80%;
   gap: 2rem;
 
   .input {
@@ -36,20 +36,28 @@
       background-color: rgba(174, 0, 255, 0.8);
     }
   }
-  .section{
+  .section {
     display: flex;
     flex-direction: row;
-    justify-content:center;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
-    gap: 1rem;
-    div{
+    gap: 2rem;
+
+    div {
       display: flex;
       align-items: center;
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
+      input {
+        padding: 0;
+      }
+    }
+    @media (max-width: 450px) {
+      gap: 1rem;
     }
   }
 
-  @media (max-width: 800px){
+  @media (max-width: 800px) {
     width: 80%;
     margin: 0 auto;
   }
